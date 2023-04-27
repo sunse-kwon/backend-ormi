@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selector</title>
+    <style>
+        /* universal selector */
+        * {
+            border: 5px solid royalblue;
+            padding: 20px;
+        }
+
+        /* type selector */
+        p {
+            color: red;
+        }
+        /* id selector, 페이지 내 id는 유일해야 함, 숫자로 시작x, 특수문자 중 - 와 _ 로만 시작가능*/
+        #hello {
+            border: 1px solid red;
+        }
+        /* clss selector, 숫자로 시작 x,  특수문자 중 - 와 _ 로만 시작가능 */
+        .hi {
+            border: 1px solid blue;
+        }
+        /* 특성선택자, 특성이 있는 tag들을 선택하고 싶을때, []안이 empty일때 속성 값이 있는 모든 항목들이 선택됨*/
+        [type="email"] {
+            border-color: yellow;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Hello</h1>
+        <p>Hello</p>
+        <button type="button">Hello</button>
+
+      </div>
+</body>
+</html>
