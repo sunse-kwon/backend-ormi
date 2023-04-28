@@ -1,3 +1,3 @@
 # BackendOrmi
 
-this repository is exercise during the lecture. 
+this repository consists of exercises during the lecture. 
