@@ -1,12 +1,69 @@
 body,
 h1,
-p {
+h2,
+p,
+fieldset,
+ul {
+    padding: 0;
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* layout */
+
+body {
+    min-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.main {
+    flex-grow: 1;
+    width: 1000px;
+    margin: auto;
+}
+
+/* header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 80px;
+    border-bottom: 1px solid #ddd;
+
+}
+
+.header-click a,
+.header-click button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.header-click button {
+    font: inherit;
+    border: 0;
+    background: none;
+}
+
+.footer {
+    background: #eee;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 80px;
+}
+
+/* login */
 .container {
     width: 360px;
-    /* background-color: skyblue; */
     margin: 40px auto;
 }
 
@@ -17,10 +74,9 @@ p {
 
 .description {
     margin: 20px 0;
-    color: gray;
 }
 
-form>div {
+.login>div {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
@@ -42,13 +98,16 @@ form>div {
 
 .submit-button {
     width: 100%;
-    height: 20px;
+    height: 40px;
     background-color: royalblue;
     color: white;
+    border: 1px solid rgb(16, 40, 109);
+    border-width: 0 0 3px 0;
     margin-top: 20px;
     border-radius: 4px;
-    border: 2px solid rgb(3, 23, 82);
     font: inherit;
+    box-sizing: content-box;
+    padding: 0;
 }
 
 .submit-button:active {
@@ -59,6 +118,7 @@ form>div {
 .submit-button:hover {
     background-color: lightpink;
 }
+
 
 .signin-button {
     width: 100%;
@@ -72,28 +132,192 @@ form>div {
 
 }
 
+/* 회원가입 */
 fieldset {
     border: none;
-    margin: 0;
-    padding: 0 0 0 0;
-    margin-left: 0;
+    margin: 20px 0;
 }
 
-ul {
+fieldset ul {
     list-style-type: none;
-    display: inline;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
 }
 
-li {
-    display: inline;
+fieldset ul li {
+    /* display: inline; */
 }
 
-legend {
-    display: inline;
-    margin: 0;
+fieldset legend {
     float: left;
     width: 70px;
-    padding-bottom: 20px;
+}
+
+[type="checkbox"]:checked+label {
+    font-weight: bold;
+}
+
+/* list */
+.list.table {
+    text-align: center;
+}
+
+/* table 게시판*/
+.table {
+    /* cell 사이 간격 삭제 */
+    border-spacing: 0;
+    /* 테두리 중첩 */
+    border-collapse: collapse;
+    table-layout: fixed;
+    border-top: 2px solid black;
+    border-bottom: 1px solid #ddd;
+    width: 1000px;
+    margin: auto;
+
+
+}
+
+.table th {
+    background-color: #ddd;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table td {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.table a {
+    display: block;
+    text-align: left;
+    padding: 8px 0;
+    font-weight: bold;
+    /* 말줄임 처리 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* main 내부 컨텐츠 */
+.main-title {
+    margin: 60px 0 10px 0;
+}
+
+.main-desc {
+    margin-bottom: 20px;
+}
+
+.main-desc strong {
+    color: royalblue;
+}
+
+/* write */
+.btn-group {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.btn {
+    background-color: #eee;
+    width: 80px;
+    height: 32px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    /* 1번 방법 */
+    /* 
+    display: inline-block;
+    text-align: center;
+    line-height: 32px; */
+    /* 2번째 방법 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font: inherit;
+}
+
+/* write 내용*/
+.write textarea {
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    height: 400px;
+
+}
+
+/* 제목 */
+#board-title {
+    width: 100%;
+}
+
+/* 카테고리 */
+.write select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    height: 32px;
+
+}
+
+/* view */
+.view-check {
+    padding-top: 10px;
+    border-bottom: 2px solid black;
+    font-size: 30px;
+}
+
+.view-header-box {
+    background-color: #ddd;
+    padding: 20px 20px 20px 20px;
+
+
+}
+
+.view-title-detail {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 5px;
+}
+
+.view-title-detail>div {
+    border-right: 2px solid rgb(175, 175, 175);
+    padding-right: 15px;
+}
+
+.view-content {
+    margin-left: 20px;
+
+}
+
+.view-content>h3 {
+    margin-bottom: 5px;
+    padding-top: 30px;
+}
+
+.view-content>ol {
+    padding: 0;
+    margin-top: 0;
+}
+
+.view-content>ul,
+.view-content>ol {
+    margin-left: 20px;
+}
+
+.view-hompage {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.view-content li {
+    margin: 5px 0 0 0;
+}
+
+.view-content div {
+    margin-top: 10px;
 }
