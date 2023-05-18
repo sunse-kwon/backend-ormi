@@ -1,0 +1,90 @@
+#advanced 문제 : shift, unshift, get 구현
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        init = Node('init')
+        self.head = init
+        self.tail = init
+        self.count = 0 
+
+    def __iter__(self):
+        CurrentNode = self.head
+        CurrentNode = CurrentNode.next
+        while CurrentNode:
+            yield CurrentNode.data
+            CurrentNode =CurrentNode.next
+
+
+    def __len__(self):
+        return self.count
+    
+    def __str__(self):
+        s=''
+        CurrentNode = self.head
+        CurrentNode =CurrentNode.next
+        for i in range(self.count):
+            s += f'{CurrentNode.data}, '
+            CurrentNode =CurrentNode.next
+        return f'<{s[:-2]}>' #f'[{s[:-2]}]'
+        
+    def append(self, data):
+        newNode = Node(data)
+        self.tail.next = newNode
+        self.tail = newNode
+        self.count += 1
+
+    def pop(self):
+        LastValue = self.tail.data #마지막 값을 꺼내야 되니까
+        CurrentNode = self.head
+        for i in range(self.count):
+            if CurrentNode.next is self.tail:
+                self.tail = CurrentNode
+                break
+            CurrentNode = CurrentNode.next
+        self.count -= 1
+        return LastValue
+
+    def find(self,data):
+        index = -1
+        CurrentNode = self.head
+        for i in range(self.count):
+            if CurrentNode.data == data:
+                return index
+            index +=1
+            CurrentNode = CurrentNode.next
+        return index
+    
+    #shift function
+    def shift(self):
+        if self.head is None:
+            self.head = None
+        else:
+            data = self.head.data
+            self.head = self.head.next
+            return data
+        
+    #unshift function
+    def unshift(self,data):
+        NewNode = Node(data)
+        NewNode.next = self.head
+        self.head = NewNode
+
+    #get function
+    def get(self,index):
+        idx = -1
+        CurrentNode = self.head
+        for i in range(self.count+1):
+            if index < 0 or index >= self.count:
+                return None
+            elif idx == index:
+                CurrentNode = CurrentNode
+                return CurrentNode.data
+            CurrentNode = CurrentNode.next
+            idx +=1
+        else:
+            None

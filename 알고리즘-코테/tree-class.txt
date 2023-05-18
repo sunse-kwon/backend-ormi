@@ -1,0 +1,108 @@
+#트리만들기
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+class Tree:
+    def __init__(self,data):
+        init = Node(data)
+        self.root = init
+        self.count = 1
+        
+
+    def __len__(self):
+        return self.count
+        
+    def insert(self,data):
+        NewNode = Node(data)
+        CurrentNode = self.root
+
+        while CurrentNode:
+            #같은 값이면 값을 추가시켜 주지 않습니다.
+            if data == CurrentNode.data:
+                return 
+            elif data < CurrentNode.data:
+                # 왼쪽으로 가야합니다.
+                
+                if not CurrentNode.left:
+                    #왼쪽노드가 None일경우 not none == True가됨, 그래서 왼쪽노드가 비었으면으로 해석
+                    CurrentNode.left = NewNode
+                    self.count += 1
+                    return 
+                #왼쪽노드가 비어있지 않으면
+                CurrentNode = CurrentNode.left
+
+            elif data > CurrentNode.data:
+                # 오른쪽으로 가야합니다.
+                
+                if not CurrentNode.right:
+                    #오른쪽노드가 none일경우 not none == True가됨, 오른쪽 노드가 비었으면으로 해석
+                    CurrentNode.right = NewNode
+                    self.count += 1
+                    return 
+                #오른쪽 노드가 비어있지 않으면
+                CurrentNode = CurrentNode.right
+
+
+    #깊이우선탐색 depth first search: 스택 Stack
+    def DFS(self):
+        result = []
+        stack = [self.root]
+
+        while len(stack) != 0:
+            current = stack.pop()
+            if current.right:
+                stack.append(current.right)
+
+            if current.left:
+                stack.append(current.left)
+            result.append(current.data)
+        return result
+
+
+    #너비우선탐색 breadth first search: 큐 queue
+    def BFS(self):
+        result = []
+        queue = [self.root]
+
+        while len(queue) != 0:
+            current = queue.pop(0)
+            if current.left:
+                queue.append(current.left)
+                            
+            if current.right:
+                queue.append(current.right)
+
+
+            result.append(current.data)
+        return result
+    
+    #깊이 찾기 - gpt활용 제실력이 아닙니다. 뜯어보고 공부함
+    def find_depth(self,data):
+        CurrentNode = self.root
+        depth = 0
+        while CurrentNode:
+            if data == CurrentNode.data:
+                return depth
+            elif data < CurrentNode.data:
+                CurrentNode =CurrentNode.left
+                depth += 1
+            elif data > CurrentNode.data:
+                CurrentNode =CurrentNode.right
+                depth += 1
+
+    #전체노드 출력 - gpt활용 제실력이 아닙니다. 뜯어보고 공부함
+    def print_path(self, node=None):
+        if node == None:
+            node = self.root
+        print(node.data, end=' ')
+        if node.left:
+            self.print_path(node.left)
+        if node.right:
+            self.print_path(node.right)
+
+        
+    def delete():
+        pass
