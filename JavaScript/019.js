@@ -24,10 +24,10 @@ arr6.slice(2, 5); //arr[2:5]와 같다 in python
 const arr7 = [1, 2, 3, 7, 8, 5];
 //사전식 정렬입니다.(문자열 정렬처럼 봅니다.)
 
-//오름차순
+//오름차순 - 외울 것 아래꺼
 arr7.sort((a, b) => a - b);
 
-//내림차순
+//내림차순 - 외울 것 아래꺼. 
 arr7.sort((a, b) => b - a);
 
 //forEach 자주사용합니다., 반복만합니다.
@@ -39,8 +39,9 @@ arr8.forEach((item, index, arr) => {
   console.log(arr);
 });
 
+//실무에서는 이렇게 많이 사용한대요
 const arr9 = [1, 11, 2, 3, 7, 8, 22, 5];
-arr8.forEach((v, i) => {
+arr9.forEach((v, i) => {
   console.log(v); //value
   console.log(i); //index
 });
@@ -58,13 +59,13 @@ arr8.forEach((v, i) => {
 </body> 
 */
 const arr10 = [1, 11, 2, 3, 7, 8, 22, 5];
-arr8.forEach((v, i) => {
+arr10.forEach((v, i) => {
   const tag = document.getElementById(i);
   tag.innerHTML = v;
 });
 
 const arr11 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const newArr = arr.filter((el) => el % 2 === 0);
+const newArr = arr11.filter((el) => el % 2 === 0);
 console.log(newArr);
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/120583?language=javascript
@@ -76,7 +77,7 @@ function solution(array, n) {
 [].reduce((a, c) => a + c, 0);
 
 const arr12 = ["hello", "world", "hojun"];
-arr1.join("!"); // hello!world!hojun
+arr12.join("!"); // hello!world!hojun
 
 //map은 아래 형태보다, 데이터를 뽑아내는 형태로 많이 사용합니다.
 [1, 2, 3, 4]

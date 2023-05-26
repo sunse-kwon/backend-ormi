@@ -20,11 +20,11 @@ switch (
 ) {
   case 1:
     // 값1에 대한 실행 코드
-    console.log(1);
+    console.log('one');
     break;
   case 2:
     // 값2에 대한 실행 코드
-    console.log(2);
+    console.log('two');
     break;
   default:
     // 모든 case에 해당하지 않을 때 실행될 코드
@@ -82,6 +82,7 @@ for (;;) {}
 for (const key in [10, 20, 30]) {
   console.log(key);
 }
+
 for (const key in { one: 1, two: 2 }) {
   console.log(key);
 }

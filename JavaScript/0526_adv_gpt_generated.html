@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      main {
+        display
+    </main>
+    <script>
+      let allMemo = JSON.parse(localStorage.getItem("allMemo"))?? [];
+      render();
+
+      function saveNote() {
+        const title = document.getElementById("title").value;
+        const content = document.getElementById("content").value;
+
+        allMemo.push({ title, content, len: allMemo.length });
+
+        localStorage.setItem("allMemo", JSON.stringify(allMemo));
+        render();
+      }
+
+      function modifyNote() {
+        const title = document.getElementById("title").value;
+        const content = document.getElementById("content").value;
+        const id = document.getElementById("id").value;
+
+        const idx = allMemo.findIndex((item) => item.len == id);
+        if (idx) {
+          allMemo[idx].title = title;
+          allMemo[idx].content = content;
+        }
+
+        localStorage.setItem("allMemo", JSON.stringify(allMemo));
+        render();
+      }
+
+      function render() {
+        const display = document.getElementById("display");
+        display.innerHTML = "";
+
+        for (const item of allMemo) {
+          const saveTitle = document.createElement("h2");
+          const saveContent = document.createElement("p");
+          const saveId = document.createElement("p");
+          const deleteMemoBtn = document.createElement("button");
+          const modifyMemoBtn = document.createElement("button");
+
+          saveTitle.textContent = item.title;
+          saveContent.textContent = item.content;
+          saveId.textContent = item.len + 1;
+          deleteMemoBtn.textContent = "삭제";
+          deleteMemoBtn.setAttribute("id", item.len);
+          deleteMemoBtn.setAttribute("onclick", "remove()");
+          modifyMemoBtn.textContent = "수정";
+          modifyMemoBtn.setAttribute("id", item.len);
+          modifyMemoBtn.setAttribute("onclick", "modify()");
+
+          display.appendChild(saveId);
+          display.appendChild(saveTitle);
+          display.appendChild(saveContent);
+          display.appendChild(deleteMemoBtn);
+          display.appendChild(modifyMemoBtn);
+        }
+      }
+
+      function remove() {
+        const idx = allMemo.find((item) => item.len == event.srcElement.id);
+        if (idx) {
+          allMemo.splice(
+            allMemo.findIndex((item) => item.len == idx.len),
+            1
+          );
+        }
+        localStorage.setItem("allMemo", JSON.stringify(allMemo));
+        render();
+      }
+
+      function modify() {
+        const id = event.srcElement.id;
+        const idx = allMemo.findIndex((item) => item.len == id);
+        if (idx) {
+          document.getElementById("title").value = allMemo[idx].title;
+          document.getElementById("content").value = allMemo[idx].content;
+          document.getElementById("id").value = id;
+        }
+      }
+    </script>
+  </body>
+</html>

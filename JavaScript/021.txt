@@ -1,0 +1,4 @@
+SPA : single page application
+장점: 사용자 경험이 좋다. 빨라, 페이지 깜빡임이 없음
+MPA : multi page application
+위와 같은 장점은 없음. 
