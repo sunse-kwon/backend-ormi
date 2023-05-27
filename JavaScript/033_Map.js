@@ -1,3 +1,5 @@
+// Map 객체는 키-값 쌍을 가지는 객체 자료형의 한 종류입니다.
+
 let m = new Map();
 
 // Map에 값을 넣기
@@ -48,7 +50,7 @@ for (i of Object.entries({ one: 1, two: 2 })) {
 }
 
 // Map의 순환(일반적인 for문을 사용하려면 아래처럼 전개해야 합니다.)
-// let m = [...data]
+let m = [...data]
 for (const variable of m) {
   console.log(`m을 순회하고 있습니다. ${variable[0]}`);
   console.log(`m을 순회하고 있습니다. ${variable[1]}`);
@@ -59,9 +61,9 @@ for (const [key, val] of m) {
 }
 
 // Map의 값에 접근
-console.log(m.keys());
-console.log(m.values());
-console.log(m.entries());
+console.log(data.keys());
+console.log(data.values());
+console.log(data.entries());
 
 // 인덱스를 가지는 자료형을 맵핑하기
 let temp = new Map([

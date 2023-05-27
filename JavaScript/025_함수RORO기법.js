@@ -7,20 +7,22 @@ function mob(
     hp,
     mp,
     attack,
-    depence,
+    defence,
     name,
     speed
 ) {
-    console.log(x, y, hp, mp, attack, depence, name, speed)
+    console.log(x, y, hp, mp, attack, defence, name, speed)
 }
 
-mob(10, 20, 100, 200, 100, 10, 'hojun', 100)
+mob(10, 20, 100, 200, 100, 10, 'hojun', 100) // ambiguos 
+// 내가 원하는 곳에 값을 주는 것이 불가합니다. , 아래 두 함수의 x와 y에 순서를 바꿔도 똑같다. 
 mob(x = 10, y = 20, 100, 200, 100, 10, 'hojun', 100)
 mob(y = 10, x = 20, 100, 200, 100, 10, 'hojun', 100)
 
-// 내가 원하는 곳에 값을 주는 것이 불가합니다.
+
 // 그렇기에 RORO기법이라는 기법이 생깁니다.
 
+//요렇게는 roro 가 안됨. 
 function mob({
     x: 100,
     y: 200,
@@ -35,7 +37,7 @@ mob({ x: 200, y: 200, hp: 300, mp: 400 })
 
 ///////////
 
-
+//요렇게 해야함. 차이를 잘 인지할 것. 
 function mob({
     x = 100,
     y = 200,
@@ -64,7 +66,7 @@ mob({ x: 200, y: 200, hp: 300 })
 
 
 //////////
-
+//변수선언
 let one
 let two
 let three

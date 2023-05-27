@@ -1,3 +1,4 @@
+// Document Object Model
 // dom 은 document 찍고 나온 모든것들, DOM != javascript
 // dom is API , what is api? application programming interface.
 
