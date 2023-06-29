@@ -57,7 +57,7 @@ let p = new Promise(function (resolve, reject) {
 
 ///////////////////////////////////////
 
-fetch("http://testtttt.api.weniv.co.kr/mall")
+fetch("http://test.api.weniv.co.kr/mall")
   .then((data) => data.json())
   .then((data) => {
     console.log(data);

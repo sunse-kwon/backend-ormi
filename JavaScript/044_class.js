@@ -32,7 +32,9 @@ function NewFactory(name){
 }
 
 let robot1 = new Factory();
-let robot2 = new NewFactory('브랜든');
+let robot2 = new NewFactory('브랜든2');
+let robot3 = new NewFactory('브랜든3');
+let robot4 = new NewFactory('브랜든4'); // 우리는 100개의 객체를 생성할때마다 역시 100개의 함수를 새로 만들고 있는것 입니다.
 
 
 //자바스크립트에서만 해당
@@ -77,6 +79,7 @@ let 자식1 = new Child()
 class Robot {
     // 클래스의 생성자 함수입니다. 하나의 클래스는 하나의 생성자만 정의할 수 있습니다. 
     // 그리고 생성자 함수는 new 키워드가 호출될때 자동으로 실행됩니다.
+    
     // python에 __init__()
     constructor(name) {
         this.name = name;
